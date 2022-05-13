@@ -6,9 +6,6 @@ const getJson = async({
     end = 3
   }={}) =>{
   return new Promise((resolve,reject)=>{
-    console.log(id)
-    console.log(start)
-    console.log(end)
     let nodes=[],edges = []
     let query = `MATCH (c:Domain{id:"${id}"})-[r*${start}..${end}]->(result) return r,result`
     neo4jDriver.session().run(query).then(result=>{
